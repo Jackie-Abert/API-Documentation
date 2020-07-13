@@ -10,9 +10,8 @@ function displayResults(responseJson) {
     console.log(responseJson[0].owner.login)
     let user = responseJson[0].owner.login
     let userinfo = `
-        <h4>User: <span class="user">${user}</span></h4>
-        <h4><span class="user">Repos: ${responseJson.length}</span></h4>
-        <ul class="results-list"></ul>
+        <h4>User:${user}</h4>
+        <h4>Repos: ${responseJson.length}</h4>
     `
     $('.js-results').append(userinfo)
     for (let i = 0; i < responseJson.length; i++) {
