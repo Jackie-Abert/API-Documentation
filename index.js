@@ -2,7 +2,7 @@
 
 function getRepos(name) {
   console.log('get repos')
-    fetch('https://api.github.com/users/${user}/repos')
+    fetch(`https://api.github.com/users/${name}/repos`)
     .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
