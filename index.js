@@ -10,15 +10,15 @@ function getRepos(name) {
 }
 
 
-function displayResults(data) {
-    console.log(data);
+function displayResults(responseJson) {
+    console.log(responseJson);
     $('#results').empty();
-    for (let i = 0; i < data.items.length; i++){
-
-      $('#results').append(
+    for (let i = 0; i < responseJson.length; i++){
+      console.log(responseJson[i].name)
+        $('#results').append(
         `<li>
-            <h3>data.items[i].name</h3>
-            <a href=data.items[i].url>data.items[i].url</a>
+            <h3>responseJson[i].name</h3>
+            <a href=responseJsons[i].html_url>responseJson[i].html_url</a>
         </li>`
       )};
    
