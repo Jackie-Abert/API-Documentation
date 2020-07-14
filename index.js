@@ -1,8 +1,9 @@
-'use strict';
+/* eslint-env jquery */
+/* eslint-disable no-console */
 
 function getRepos(name) {
-  console.log('get repos')
-    fetch(`https://api.github.com/users/${name}/repos`)
+  console.log('get repos');
+  fetch(`https://api.github.com/users/${name}/repos`)
     .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
@@ -11,22 +12,24 @@ function getRepos(name) {
 
 
 function displayResults(responseJson) {
-    console.log(responseJson);
-    $('#results').empty();
-    for (let i = 0; i < responseJson.length; i++){
-      console.log(responseJson[i].html_url)
-      console.log(responseJson[i].name)
-        $('.results').append(
-        `<p>${responseJson[i].name}<p>
+  $('.results').empty();
+  for (let i = 0; i < responseJson.length; i++){
+    $('.results').append(
+      `<p>${responseJson[i].name}<p>
         <a href="${responseJson[i].html_url}">${responseJson[i].html_url}</a>`
-      )};
+    );
+  }
    
-  };
+}
 
-  function watchForm() {
+function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
     const name = $('#name').val();
+    if (name.length === 0) {
+      alert('Must fill in name');
+    }
+    
     getRepos(name);
   });
 }
