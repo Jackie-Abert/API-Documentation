@@ -14,13 +14,13 @@ function displayResults(responseJson) {
     console.log(responseJson);
     $('#results').empty();
     for (let i = 0; i < responseJson.length; i++){
+      console.log(responseJson[i].html_url)
       console.log(responseJson[i].name)
-        $('#results').append(
-        `<p>responseJson[i].name<p>
-        <a href="responseJsons[i].html_url">responseJson[i].html_url</a>`
+        $('.results').append(
+        `<p>${responseJson[i].name}<p>
+        <a href="${responseJson[i].html_url}">${responseJson[i].html_url}</a>`
       )};
    
-    $('#results').removeClass('hidden');
   };
 
   function watchForm() {
