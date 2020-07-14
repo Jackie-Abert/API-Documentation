@@ -16,10 +16,8 @@ function displayResults(responseJson) {
     for (let i = 0; i < responseJson.length; i++){
       console.log(responseJson[i].name)
         $('#results').append(
-        `<li>
-            <h3>responseJson[i].name</h3>
-            <a href=responseJsons[i].html_url>responseJson[i].html_url</a>
-        </li>`
+        `<p>responseJson[i].name<p>
+        <a href="responseJsons[i].html_url">responseJson[i].html_url</a>`
       )};
    
     $('#results').removeClass('hidden');
